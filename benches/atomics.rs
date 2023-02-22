@@ -26,7 +26,7 @@ fn criterion_benchmark(c: &mut Criterion) {
     let arc_rwlock_city = Arc::new(RwLock::new(city.clone()));
     let atomic_u32 = AtomicU32::new(0);
     
-    c.bench_function("access plain", |b| b.iter(||
+    c.bench_function("access Owned", |b| b.iter(||
         city.get_name()
     ));
     
@@ -54,7 +54,7 @@ fn criterion_benchmark(c: &mut Criterion) {
         atomic_u32.load(Ordering::Relaxed)
     }));
     
-    c.bench_function("modify plain", |b| b.iter(||
+    c.bench_function("modify Owned", |b| b.iter(||
         city.name = String::from("Shibuya")
     ));
     
