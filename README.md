@@ -4,7 +4,7 @@ Provide a rough idea of the cost of common atomic operations in comparison to no
 
 ## Results
 
-``
+```
 access plain            time:   [432.22 ps 432.55 ps 432.84 ps]
 access Rc               time:   [650.70 ps 653.99 ps 657.40 ps]
 access Arc              time:   [547.54 ps 550.43 ps 553.66 ps]
@@ -16,4 +16,4 @@ modify Rc<RefCell>      time:   [8.2859 ns 8.3512 ns 8.4087 ns]
 modify Arc<Mutex>       time:   [8.8253 ns 8.8465 ns 8.8759 ns]
 modify Arc<RwLock>      time:   [9.0563 ns 9.0887 ns 9.1402 ns]
 modify AtomicU32        time:   [108.21 ps 108.31 ps 108.41 ps]
-``
+```
