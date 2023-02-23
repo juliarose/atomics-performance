@@ -54,6 +54,18 @@ fn criterion_benchmark(c: &mut Criterion) {
         atomic_u32.load(Ordering::Relaxed)
     }));
     
+    c.bench_function("clone Owned", |b| b.iter(||
+        city.clone()
+    ));
+    
+    c.bench_function("clone Rc", |b| b.iter(||
+        Rc::clone(&rc_city)
+    ));
+    
+    c.bench_function("clone Arc", |b| b.iter(||
+        Arc::clone(&arc_city)
+    ));
+    
     c.bench_function("modify Owned", |b| b.iter(||
         city.name = String::from("Shibuya")
     ));
